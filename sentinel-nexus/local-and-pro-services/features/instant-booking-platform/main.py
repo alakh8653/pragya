@@ -1,0 +1,1 @@
+print('Instant booking platform')

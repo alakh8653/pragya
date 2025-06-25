@@ -1,0 +1,1 @@
+print('Agri app placeholder')
