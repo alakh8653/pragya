@@ -25,7 +25,7 @@ users_db: List[User] = []
 
 
 @router.post("/", response_model=User, status_code=201)
-def create_user(user: UserCreate) -> User:
+async def create_user(user: UserCreate) -> User:
     """Create a new user and store it in memory."""
     user_obj = User(id=str(uuid4()), **user.dict())
     users_db.append(user_obj)
@@ -33,16 +33,35 @@ def create_user(user: UserCreate) -> User:
 
 
 @router.get("/", response_model=List[User])
-def list_users() -> List[User]:
+async def list_users() -> List[User]:
     """Return all registered users."""
     return users_db
 
 
 @router.get("/{user_id}", response_model=User)
-def get_user(user_id: str) -> User:
+async def get_user(user_id: str) -> User:
     """Retrieve a single user by identifier."""
     for user in users_db:
         if user.id == user_id:
             return user
+    raise HTTPException(status_code=404, detail="User not found")
+
+
+@router.put("/{user_id}", response_model=User)
+async def update_user(user_id: str, data: UserCreate) -> User:
+    for idx, user in enumerate(users_db):
+        if user.id == user_id:
+            updated = user.copy(update=data.dict())
+            users_db[idx] = updated
+            return updated
+    raise HTTPException(status_code=404, detail="User not found")
+
+
+@router.delete("/{user_id}", status_code=204)
+async def delete_user(user_id: str) -> None:
+    for idx, user in enumerate(users_db):
+        if user.id == user_id:
+            del users_db[idx]
+            return
     raise HTTPException(status_code=404, detail="User not found")
 

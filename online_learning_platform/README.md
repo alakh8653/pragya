@@ -6,6 +6,9 @@ infrastructure configuration using Docker, Kubernetes, and Terraform. The backen
 stores data in memory for demonstration and exposes endpoints for users,
 authentication, courses, assignments, and analytics.
 
+The backend application is assembled via `backend.main.create_app` which returns
+a fully configured FastAPI instance ready to run with Uvicorn or in tests.
+
 - **backend/** – API source code and tests
 - **frontend/** – React application
 - **infrastructure/** – deployment artifacts

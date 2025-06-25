@@ -1,5 +1,7 @@
 from fastapi.testclient import TestClient
-from backend.main import app
+from backend.main import create_app
+
+app = create_app()
 
 client = TestClient(app)
 
@@ -21,3 +23,13 @@ def test_user_flow():
     login_resp = client.post('/auth/login', json={"email": payload['email'], "password": "pw"})
     assert login_resp.status_code == 200
     assert 'token' in login_resp.json()
+
+    # update user
+    update_payload = {"name": "Alice Smith", "email": "alice@example.com"}
+    up_resp = client.put(f"/users/{created['id']}", json=update_payload)
+    assert up_resp.status_code == 200
+    assert up_resp.json()['name'] == 'Alice Smith'
+
+    # delete user
+    del_resp = client.delete(f"/users/{created['id']}")
+    assert del_resp.status_code == 204

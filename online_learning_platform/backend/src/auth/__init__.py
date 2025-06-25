@@ -14,7 +14,7 @@ class LoginRequest(BaseModel):
 
 
 @router.post("/login")
-def login(credentials: LoginRequest):
+async def login(credentials: LoginRequest):
     """Very basic login that validates by email only."""
     for user in users_db:
         if user.email == credentials.email:

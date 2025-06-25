@@ -20,13 +20,13 @@ messages_db: List[Message] = []
 
 
 @router.post("/", response_model=Message, status_code=201)
-def send_message(message: Message) -> Message:
+async def send_message(message: Message) -> Message:
     message.id = str(uuid4())
     messages_db.append(message)
     return message
 
 
 @router.get("/inbox/{user_id}", response_model=List[Message])
-def inbox(user_id: str) -> List[Message]:
+async def inbox(user_id: str) -> List[Message]:
     return [m for m in messages_db if m.receiver_id == user_id]
 

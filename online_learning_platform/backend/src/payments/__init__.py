@@ -12,7 +12,7 @@ class PaymentRequest(BaseModel):
 
 
 @router.post("/charge")
-def charge(req: PaymentRequest):
+async def charge(req: PaymentRequest):
     """Pretend to process a payment."""
     return {"status": "charged", "user_id": req.user_id, "amount": req.amount}
 
