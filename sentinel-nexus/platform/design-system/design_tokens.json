@@ -1,0 +1,9 @@
+{
+  "colors": {
+    "primary": "#0055ff",
+    "secondary": "#ff5500"
+  },
+  "fonts": {
+    "base": "Inter, sans-serif"
+  }
+}
