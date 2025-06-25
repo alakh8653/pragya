@@ -2,7 +2,9 @@
 
 This directory contains an example implementation for an online learning platform.
 It demonstrates a basic FastAPI backend, a minimal React frontend, and
-infrastructure configuration using Docker, Kubernetes, and Terraform.
+infrastructure configuration using Docker, Kubernetes, and Terraform. The backend
+stores data in memory for demonstration and exposes endpoints for users,
+authentication, courses, assignments, and analytics.
 
 - **backend/** – API source code and tests
 - **frontend/** – React application
