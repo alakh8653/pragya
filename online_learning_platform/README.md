@@ -1,10 +1,12 @@
 # Online Learning Platform
 
-This directory contains a sample advanced directory structure for building a modern online learning platform. Each folder includes a `.gitkeep` file so it can be tracked in version control.
+This directory contains an example implementation for an online learning platform.
+It demonstrates a basic FastAPI backend, a minimal React frontend, and
+infrastructure configuration using Docker, Kubernetes, and Terraform.
 
-- **backend/** – API source code, configurations, and tests
-- **frontend/** – client-side application with components and pages
-- **infrastructure/** – scripts and definitions for deployment and infrastructure
+- **backend/** – API source code and tests
+- **frontend/** – React application
+- **infrastructure/** – deployment artifacts
 - **data/** – database migrations and seed data
 - **docs/** – project documentation
-- **scripts/** – helper scripts for maintenance
+- **scripts/** – helper scripts for development

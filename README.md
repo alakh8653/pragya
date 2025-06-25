@@ -1,3 +1,5 @@
 # Pragya
 
-This repository includes a sample directory layout for an advanced online learning platform. The structure lives under `online_learning_platform/` and can be used as a starting point for development.
+This repository includes an example implementation of a modern online learning platform.
+The code lives under `online_learning_platform/` and consists of a FastAPI backend,
+a small React frontend, deployment scripts, and documentation.
