@@ -18,6 +18,10 @@ class AssessmentCreate(BaseModel):
     title: str
 
 
+class AssessmentUpdate(BaseModel):
+    title: str
+
+
 assessments_db: List[Assessment] = []
 
 
@@ -38,6 +42,17 @@ async def get_assessment(assessment_id: str) -> Assessment:
     for assessment in assessments_db:
         if assessment.id == assessment_id:
             return assessment
+    raise HTTPException(status_code=404, detail="Assessment not found")
+
+
+@router.put("/{assessment_id}", response_model=Assessment)
+async def update_assessment(assessment_id: str, data: AssessmentUpdate) -> Assessment:
+    """Update assessment details."""
+    for idx, assessment in enumerate(assessments_db):
+        if assessment.id == assessment_id:
+            updated = assessment.copy(update=data.dict(exclude_unset=True))
+            assessments_db[idx] = updated
+            return updated
     raise HTTPException(status_code=404, detail="Assessment not found")
 
 

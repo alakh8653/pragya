@@ -4,7 +4,9 @@ This directory contains an example implementation for an online learning platfor
 It demonstrates a basic FastAPI backend, a minimal React frontend, and
 infrastructure configuration using Docker, Kubernetes, and Terraform. The backend
 stores data in memory for demonstration and exposes endpoints for users,
-authentication, courses, assignments, and analytics.
+authentication, courses, assignments, assessments, analytics and more. Update
+and delete operations are implemented for most resources, demonstrating common
+CRUD patterns.
 
 The backend application is assembled via `backend.main.create_app` which returns
 a fully configured FastAPI instance ready to run with Uvicorn or in tests.

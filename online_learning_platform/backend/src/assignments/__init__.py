@@ -20,6 +20,10 @@ class AssignmentCreate(BaseModel):
     title: str
 
 
+class AssignmentUpdate(BaseModel):
+    title: str
+
+
 assignments_db: List[Assignment] = []
 
 
@@ -40,6 +44,17 @@ async def get_assignment(assignment_id: str) -> Assignment:
     for assn in assignments_db:
         if assn.id == assignment_id:
             return assn
+    raise HTTPException(status_code=404, detail="Assignment not found")
+
+
+@router.put("/{assignment_id}", response_model=Assignment)
+async def update_assignment(assignment_id: str, data: AssignmentUpdate) -> Assignment:
+    """Update an assignment's details."""
+    for idx, assn in enumerate(assignments_db):
+        if assn.id == assignment_id:
+            updated = assn.copy(update=data.dict(exclude_unset=True))
+            assignments_db[idx] = updated
+            return updated
     raise HTTPException(status_code=404, detail="Assignment not found")
 
 
