@@ -1,3 +1,25 @@
+
+# pragya
+
+A simple Python project that prints a greeting.
+
+## Usage
+
+Run the script:
+
+```bash
+python main.py
+```
+
+## Testing
+
+Install the requirements and run tests with `pytest`:
+
+```bash
+pip install -r requirements.txt
+pytest
+```
+
 # Pragya Service Flow
 
 1. User Login & Device Verification (OTP, Device, Location)
@@ -19,3 +41,4 @@
 17. Emergency, Force-Close & Refund Scenarios
 18. Admin, Audit, Fraud & Compliance Operations
 19. Event-Driven, Offline-First, Crash-Safe Architecture
+
