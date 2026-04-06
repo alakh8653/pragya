@@ -1,4 +1,19 @@
 
+# Pragya E-Commerce Platform
+
+This repository demonstrates a sample directory structure for an advanced e-commerce platform inspired by the world's largest online marketplaces.
+
+## Directory Overview
+- `services/` - collection of microservices powering various business capabilities
+- `libs/` - shared libraries and clients used across services
+- `frontends/` - web and mobile applications
+- `data/` - data pipelines, migrations, and machine learning assets
+- `infrastructure/` - provisioning, deployments, and monitoring
+- `scripts/` - helper utilities for local development, builds and deployments
+- `tests/` - unit, integration, end-to-end and performance test suites
+- `docs/` - project documentation
+
+
 # Pragya
 
 This repository includes an example implementation of a modern online learning platform.
@@ -53,5 +68,6 @@ pytest
 17. Emergency, Force-Close & Refund Scenarios
 18. Admin, Audit, Fraud & Compliance Operations
 19. Event-Driven, Offline-First, Crash-Safe Architecture
+
 
 
