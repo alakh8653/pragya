@@ -1,0 +1,11 @@
+{
+  "name": "online-learning-platform",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "echo Starting frontend"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
